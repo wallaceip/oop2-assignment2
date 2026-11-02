@@ -1,108 +1,112 @@
 package problemdomain;
 
 public abstract class Vehicle {
-    private long carID;
+
+    private Long carID; //change to Long
     private String vehicleType;
-    private String subtype;
+    private String vehicleSubtype;
     private int speed;
     private double fuel;
     private int seats;
     private int year;
-    private String drivetrain;
-    private int price;
+    private String driveTrain;
+    private int price; //change to int
     private int quantity;
 
-    public Vehicle() {
-    }
+    public Vehicle(Long carID, String vehicleType, String vehicleSubtype, int speed, double fuel, int seats,
+                   int year, String driveTrain, int price, int quantity) {
 
-    public Vehicle(long carID, String vehicleType, String subtype, int speed, double fuel, int seats, int year,
-                   String drivetrain, int price,  int quantity) {
         this.carID = carID;
         this.vehicleType = vehicleType;
-        this.subtype = subtype;
+        this.vehicleSubtype = vehicleSubtype;
         this.speed = speed;
         this.fuel = fuel;
         this.seats = seats;
         this.year = year;
-        this.drivetrain = drivetrain;
+        this.driveTrain = driveTrain;
         this.price = price;
         this.quantity = quantity;
+
     }
 
-    public long getCarID() {
+    //getters
+
+    public Long getCarID() {
         return carID;
-    }
-
-    public void setCarID(long carID) {
-        this.carID = carID;
     }
 
     public String getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(String vehicleType) {
-        this.vehicleType = vehicleType;
-    }
-
-    public String getSubtype() {
-        return subtype;
-    }
-
-    public void setSubtype(String subtype) {
-        this.subtype = subtype;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public String getVehicleSubtype() {
+        return vehicleSubtype;
     }
 
     public double getFuel() {
         return fuel;
     }
 
-    public void setFuel(double fuel) {
-        this.fuel = fuel;
+    public int getSpeed() {
+        return speed;
     }
 
     public int getSeats() {
         return seats;
     }
 
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
     public int getYear() {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public String getDrivetrain() {
-        return drivetrain;
-    }
-
-    public void setDrivetrain(String drivetrain) {
-        this.drivetrain = drivetrain;
+    public String getDriveTrain() {
+        return driveTrain;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public int getQuantity() {
         return quantity;
+    }
+
+    //setters
+
+    public void setCarID(Long carID) {
+        this.carID = carID;
+    }
+
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public void setVehicleSubtype(String vehicleSubtype) {
+        this.vehicleSubtype = vehicleSubtype;
+    }
+
+    public void setFuel(double fuel) {
+        this.fuel = fuel;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setDriveTrain(String driveTrain) {
+        this.driveTrain = driveTrain;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public void setQuantity(int quantity) {
@@ -110,27 +114,30 @@ public abstract class Vehicle {
     }
 
     public boolean isAvailable() {
-        return this.quantity > 0;
+        return quantity > 0;
     }
 
     public void purchase() {
-        if (this.isAvailable()) {
-            this.quantity--;
-        }
 
     }
 
-    @Override
+    public String formatForFile() {
+        return carID + ";" + vehicleType + ";" + vehicleSubtype + ";" + speed + ";" + fuel + ";" + seats + ";" + year + ";" + driveTrain + ";" + price + ";" + quantity;
+    }
+
     public String toString() {
-        return  "Car ID: " + carID +
-                "\nVehicle Type: " + vehicleType +
-                "\nSub Type: " + subtype +
-                "\nSpeed: " + speed +
-                "\nFuel: " + fuel +
-                "\nNumber of Seats: " + seats +
-                "\nYear: " + year +
-                "\nDrivetrain: " + drivetrain +
-                "\nPrice: " + price +
-                "\nAvailable: " + quantity;
+        return
+
+                "Car ID: \t\t\n" + carID +
+                        "Vehicle Type:\n" + vehicleType +
+                        "Subtype: \t\n" + vehicleSubtype +
+                        "Speed:\t\n" + speed +
+                        "Fuel: \t\n" + fuel +
+                        "Number of seats: \t\n" + seats +
+                        "Year: \t\n" + year +
+                        "DriveTrain: \t\n" + driveTrain + '\'' +
+                        "Price: \t\n" + price +
+                        "Available: \t" + quantity;
     }
 }
+
