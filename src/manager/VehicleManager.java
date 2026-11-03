@@ -101,13 +101,13 @@ public class VehicleManager {
                     purchaseVehicle();
                     break;
                 case 2:
-                    generateMovieListInYear();
+
                     break;
                 case 3:
-                    generateRandomMovieList();
+
                     break;
                 case 4:
-                    saveMovieListToFile();
+
                     break;
                 default:
                     System.out.println("Invalid option!");
