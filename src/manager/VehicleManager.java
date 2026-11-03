@@ -117,7 +117,6 @@ public class VehicleManager {
                     break;
                 case 5:
                     saveVehiclesList();
-                    System.out.println("Goodbye.");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -137,7 +136,7 @@ public class VehicleManager {
                 if (vehicle.isAvailable()) {
                     vehicle.purchase(); //purchase vehicle and decrease quantity
 
-                    System.out.println("\nThe Vehicle \"" + vehicle.getVehicleType() + " " + vehicle.getSubType() + "\" has been purchased.");
+                    System.out.println("\nThe Vehicle \"" + vehicle.getVehicleType() + " " + vehicle.getSubType() + "\" has been purchased.\n" );
 
                 } else {
                     System.out.println("Vehicle is currently unavailable.");
