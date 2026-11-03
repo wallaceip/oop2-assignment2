@@ -3,28 +3,28 @@ package problemdomain;
 public abstract class Vehicle {
     private long carID;
     private String vehicleType;
-    private String subtype;
+    private String subType;
     private int speed;
     private double fuel;
     private int seats;
     private int year;
-    private String drivetrain;
+    private String driveTrain;
     private int price;
     private int quantity;
 
     public Vehicle() {
     }
 
-    public Vehicle(long carID, String vehicleType, String subtype, int speed, double fuel, int seats, int year,
-                   String drivetrain, int price,  int quantity) {
+    public Vehicle(long carID, String vehicleType, String subType, int speed, double fuel, int seats, int year,
+                   String driveTrain, int price,  int quantity) {
         this.carID = carID;
         this.vehicleType = vehicleType;
-        this.subtype = subtype;
+        this.subType = subType;
         this.speed = speed;
         this.fuel = fuel;
         this.seats = seats;
         this.year = year;
-        this.drivetrain = drivetrain;
+        this.driveTrain = driveTrain;
         this.price = price;
         this.quantity = quantity;
     }
@@ -45,12 +45,12 @@ public abstract class Vehicle {
         this.vehicleType = vehicleType;
     }
 
-    public String getSubtype() {
-        return subtype;
+    public String getSubType() {
+        return subType;
     }
 
-    public void setSubtype(String subtype) {
-        this.subtype = subtype;
+    public void setSubType(String subType) {
+        this.subType = subType;
     }
 
     public int getSpeed() {
@@ -85,12 +85,12 @@ public abstract class Vehicle {
         this.year = year;
     }
 
-    public String getDrivetrain() {
-        return drivetrain;
+    public String getDriveTrain() {
+        return driveTrain;
     }
 
-    public void setDrivetrain(String drivetrain) {
-        this.drivetrain = drivetrain;
+    public void setDriveTrain(String driveTrain) {
+        this.driveTrain = driveTrain;
     }
 
     public int getPrice() {
@@ -109,28 +109,29 @@ public abstract class Vehicle {
         this.quantity = quantity;
     }
 
+    //check if vehicle is available for purchase
     public boolean isAvailable() {
-        return this.quantity > 0;
+        return quantity > 0;
     }
 
-    public void purchase() {
-        if (this.isAvailable()) {
-            this.quantity--;
+    //decrease quantity when vehicle is purchased
+    public void purchase(){
+        if (isAvailable()){
+            quantity--;
         }
-
     }
 
     @Override
     public String toString() {
-        return  "Car ID: " + carID +
+        return "Car ID: " + carID +
                 "\nVehicle Type: " + vehicleType +
-                "\nSub Type: " + subtype +
+                "\nSubtype: " + subType +
                 "\nSpeed: " + speed +
                 "\nFuel: " + fuel +
-                "\nNumber of Seats: " + seats +
+                "\nSeats: " + seats +
                 "\nYear: " + year +
-                "\nDrivetrain: " + drivetrain +
-                "\nPrice: " + price +
-                "\nAvailable: " + quantity;
+                "\nDrivetrain: " + driveTrain +
+                "\nPrice: $" + price +
+                "\nQuantity: " + quantity;
     }
 }
